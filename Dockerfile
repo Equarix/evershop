@@ -3,14 +3,17 @@ WORKDIR /app
 RUN npm install -g npm@9
 COPY package*.json .
 COPY packages ./packages
-COPY themes ./themes
-COPY extensions ./extensions
+# COPY themes ./themes
+# COPY extensions ./extensions
 COPY public ./public
-COPY media ./media
+# COPY media ./media
 COPY config ./config
 COPY translations ./translations
 RUN npm install
 RUN npm run build
 
 EXPOSE 80
-CMD ["npm", "run", "start"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

@@ -2,20 +2,24 @@ version: '3.8'
 
 services:
   app:
-    image: evershop/evershop:latest
+    build: .
     restart: always
     environment:
-      DB_HOST: database
+      DB_HOST: ${DB_HOST}
       DB_PORT: 5432
-      DB_PASSWORD: postgres
-      DB_USER: postgres
-      DB_NAME: postgres
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      ADMIN_NAME: ${ADMIN_NAME}
+      PORT: ${PORT}
     networks:
       - myevershop
     depends_on:
       - database
     ports:
-      - 3000:3000
+      - ${PORT}:${PORT}
   
   #The postgres database: 
   database:
@@ -24,9 +28,9 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
     networks:

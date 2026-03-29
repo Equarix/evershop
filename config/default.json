@@ -1,0 +1,8 @@
+{
+  "shop": {
+    "currency": "PEN",
+    "language": "es",
+    "weightUnit": "kg",
+    "timezone": "UTC"
+  }
+}
