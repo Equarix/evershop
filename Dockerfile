@@ -10,6 +10,8 @@ COPY public ./public
 COPY config ./config
 COPY translations ./translations
 RUN npm install
+RUN npm run compile
+RUN npm run compile:db
 RUN npm run build
 
 EXPOSE 80
