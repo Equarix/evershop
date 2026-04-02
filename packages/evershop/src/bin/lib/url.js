@@ -1,4 +1,4 @@
-import { getConfig } from '../../lib/util/getConfig';
+import { getConfig } from '../../lib/util/getConfig.js';
 
 export function normalizeUrl() {
   const url =
