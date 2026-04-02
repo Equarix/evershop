@@ -3,6 +3,7 @@
     "currency": "PEN",
     "language": "es",
     "weightUnit": "kg",
-    "timezone": "UTC"
+    "timezone": "UTC",
+    "url": "http://161.132.45.148:8000"
   }
 }
