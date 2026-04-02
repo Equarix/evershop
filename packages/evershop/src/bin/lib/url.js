@@ -1,4 +1,4 @@
-import { getConfig } from '@evershop/evershop/lib/util/getConfig.js';
+import { getConfig } from '../../lib/util/getConfig';
 
 export function normalizeUrl() {
   const url =
