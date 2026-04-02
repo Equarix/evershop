@@ -2,6 +2,7 @@ import { select } from '@evershop/postgres-query-builder';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { normalizePort } from '../../../../bin/lib/normalizePort.js';
+import { normalizeUrl } from '../../../../bin/lib/url.js';
 import { pool } from '../../../../lib/postgres/connection.js';
 import { buildUrl } from '../../../../lib/router/buildUrl.js';
 import { getConfig } from '../../../../lib/util/getConfig.js';
@@ -12,7 +13,6 @@ import { getTaxPercent } from '../../../../modules/tax/services/getTaxPercent.js
 import { getTaxRates } from '../../../../modules/tax/services/getTaxRates.js';
 import { getAvailablePaymentMethods } from '../getAvailablePaymentMethods.js';
 import { toPrice } from '../toPrice.js';
-import { normalizeUrl } from '@evershop/evershop/bin/lib/url.js';
 
 export function registerCartBaseFields(fields) {
   const newFields = fields.concat([

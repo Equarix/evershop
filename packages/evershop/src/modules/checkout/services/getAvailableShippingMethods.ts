@@ -1,10 +1,9 @@
 import { select } from '@evershop/postgres-query-builder';
 import axios from 'axios';
-import { normalizePort } from '../../../bin/lib/normalizePort.js';
+import { normalizeUrl } from '../../../bin/lib/url.js';
 import { pool } from '../../../lib/postgres/connection.js';
 import { buildUrl } from '../../../lib/router/buildUrl.js';
 import { toPrice } from './toPrice.js';
-import { normalizeUrl } from '@evershop/evershop/bin/lib/url.js';
 
 export const getAvailableShippingMethods = async (
   cartId: string,
