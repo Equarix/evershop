@@ -12,6 +12,7 @@ import { getTaxPercent } from '../../../../modules/tax/services/getTaxPercent.js
 import { getTaxRates } from '../../../../modules/tax/services/getTaxRates.js';
 import { getAvailablePaymentMethods } from '../getAvailablePaymentMethods.js';
 import { toPrice } from '../toPrice.js';
+import { normalizeUrl } from '@evershop/evershop/bin/lib/url.js';
 
 export function registerCartBaseFields(fields) {
   const newFields = fields.concat([
@@ -405,8 +406,7 @@ export function registerCartBaseFields(fields) {
               // Call the API of the shipping method to calculate the shipping fee. This is an internal API
               // use axios to call the API
               // Ignore http status error
-              const port = normalizePort();
-              let api = `http://localhost:${port}`;
+              let api = normalizeUrl();
               try {
                 api += buildUrl(shippingMethod.calculate_api, {
                   cart_id: this.getData('uuid'),

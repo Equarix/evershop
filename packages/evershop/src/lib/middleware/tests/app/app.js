@@ -89,8 +89,17 @@ const bootstrap = async (server) => {
   return server.address().port;
 };
 
+const baseUrl = () => {
+  const port = process.env.PORT || 3000;
+  if (process.env.TARGET_URL) {
+    return process.env.TARGET_URL;
+  }
+
+  return `http://localhost:${port}`;
+};
+
 const close = (server, done) => {
   server.close(done);
 };
 
-export { app, bootstrap, close };
+export { app, bootstrap, close, baseUrl };

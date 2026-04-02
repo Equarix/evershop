@@ -4,6 +4,7 @@ import { normalizePort } from '../../../bin/lib/normalizePort.js';
 import { pool } from '../../../lib/postgres/connection.js';
 import { buildUrl } from '../../../lib/router/buildUrl.js';
 import { toPrice } from './toPrice.js';
+import { normalizeUrl } from '@evershop/evershop/bin/lib/url.js';
 
 export const getAvailableShippingMethods = async (
   cartId: string,
@@ -97,8 +98,8 @@ export const getAvailableShippingMethods = async (
     methods.map(async (method) => {
       if (method.calculate_api) {
         // This API is internal. It must be public
-        const port = normalizePort();
-        let api = `http://localhost:${port}`;
+        let api = normalizeUrl();
+
         try {
           api += buildUrl(method.calculate_api, {
             cart_id: cart.uuid,
