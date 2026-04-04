@@ -14,6 +14,8 @@ services:
       PORT: ${PORT}
     ports:
       - ${PORT}:${PORT}
+    expose:
+      - ${PORT}
     networks:
       - myevershop
     depends_on:
