@@ -12,8 +12,6 @@ services:
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       ADMIN_NAME: ${ADMIN_NAME}
       PORT: ${PORT}
-    ports:
-      - ${PORT}:${PORT}
     expose:
       - ${PORT}
     networks:
@@ -30,8 +28,6 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
-    ports:
-      - "5432:5432"
     networks:
       - myevershop
 
