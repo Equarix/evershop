@@ -31,20 +31,6 @@ services:
     networks:
       - myevershop
 
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "8000:80"
-    volumes:
-      - ./nginx.conf.template:/etc/nginx/templates/default.conf.template:ro
-    environment:
-      - EVERSHOP_PORT=${PORT}
-    networks:
-      - myevershop
-    depends_on:
-      - app
-    restart: unless-stopped
-
 networks:
   myevershop:
     name: MyEverShop
