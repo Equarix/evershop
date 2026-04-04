@@ -6,7 +6,7 @@ COPY package*.json .
 COPY packages ./packages
 # COPY themes ./themes
 # COPY extensions ./extensions
-COPY public ./public
+# COPY public ./public
 # COPY media ./media
 COPY config ./config
 COPY translations ./translations
