@@ -12,6 +12,8 @@ services:
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       ADMIN_NAME: ${ADMIN_NAME}
       PORT: ${PORT}
+    ports:
+      - ${PORT}:${PORT}
     networks:
       - myevershop
     depends_on:
